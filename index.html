@@ -1,39 +1,76 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Frage</title>
+  <title>Entscheidung</title>
+
   <style>
     body {
+      margin: 0;
+      height: 100vh;
       font-family: Arial, sans-serif;
+      background-color: #f92384;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin-top: 80px;
     }
+
     button {
-      font-size: 20px;
-      padding: 12px 30px;
-      margin: 10px;
+      font-size: 22px;
+      padding: 14px 36px;
+      margin: 12px;
       cursor: pointer;
+      border: none;
+      border-radius: 6px;
+    }
+
+    #frage, #jaInhalt {
+      max-width: 90%;
+    }
+
+    #jaInhalt {
+      display: none;
+    }
+
+    img {
+      max-width: 320px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Willst du mein Valentine sein?</h1>
+  <div id="frage">
+    <h1>Willst du mein Valentine sein?</h1>
+    <button onclick="ja()">Ja</button>
+    <button onclick="nein()">Nein</button>
+  </div>
 
-  <button onclick="weiter(true)">Ja</button>
-  <button onclick="weiter(false)">Nein</button>
+  <div id="jaInhalt">
+    <h1>Juhhhuuu, toll, dankeeeee!!! 🎉</h1>
+    <img src="bild.jpg" alt="Bild">
+    <p>Du wirst gleich weitergeleitet …</p>
+  </div>
 
   <script>
-    function weiter(ja) {
-      if (ja) {
+    function ja() {
+      document.getElementById("frage").style.display = "none";
+      document.getElementById("jaInhalt").style.display = "block";
+
+      setTimeout(() => {
         window.location.href = "https://example.com/ja";
-      } else {
-        window.location.href = "https://example.com/nein";
-      }
+      }, 2500);
+    }
+
+    function nein() {
+      window.location.href = "https://example.com/nein";
     }
   </script>
 
 </body>
 </html>
+
